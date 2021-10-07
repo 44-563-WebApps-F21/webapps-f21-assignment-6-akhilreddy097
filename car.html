@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Orders of car
+    </title>
+</head>
+
+<body>
+
+    <h1>Akhil Kumar Reddy Mulamalla orders a car</h1>
+
+    <form>
+        <input type="checkbox" id="check_box1" name="box1" value="electric">
+        <label for="electric">electric</label><br>
+
+        <input type="checkbox" id="check_box2" name="box2" value="ac">
+        <label for="ac">ac</label><br>
+
+        <input type="checkbox" id="check_box3" name="box3" value="gps">
+        <label for="gps">gps</label><br><br>
+
+        <input type="button" value="Order a car" onclick="orderCar()">
+
+    </form>
+    <p id="result1"> </p>
+    <br>
+    <form>
+        <label for="property">Enter a property</label>
+        <input type="text" value="color" id="property"><br><br>
+        <label for="value">Enter a value</label>
+        <input type="text" id="value"> <br><br>
+        <input type="button" value="Update the car" onclick="updateCar()"><br>
+    </form>
+
+
+    <p id="result2"></p>
+    <script>
+
+         my_car = {};
+
+        function orderCar() {
+            my_car = {};
+            electric = document.getElementById("check_box1").checked;
+            ac = document.getElementById("check_box2").checked;
+            gps = document.getElementById("check_box3").checked;
+            my_car = {'electric':electric, 'ac':ac,'gps':gps};
+            let out = document.getElementById("result1");
+            out.innerHTML = JSON.stringify(my_car);
+        }
+
+        function updateCar() {
+            value = document.getElementById("value").value
+            property = document.getElementById("property").value
+
+            out = document.getElementById("result2");
+            my_car[property] = value;
+            out.innerHTML = JSON.stringify(my_car);
+        }
+    </script>
+
+</body>
+
+</html>
