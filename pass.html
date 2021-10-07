@@ -32,6 +32,9 @@
             console.log("Getting form values")
             secret_phrase = document.getElementById("secret_phrase").value
             check_phrase = document.getElementById("check_phrase").value
+            if(wrong>2){
+                alert("account locked");
+            }
 
             out = document.getElementById("result")
             if (secret_phrase == check_phrase) {
